@@ -39,11 +39,14 @@
 
 body, html {
 	height: 100%;
+  padding-bottom: 10px;
 	font-family: Poppins-Regular, sans-serif;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #723cf0, #5a1085);
+  background: linear-gradient(-45deg, #15ff00, #034e29, #041b0e, #1b1b1b);
   background-size: 400% 400%;
   animation: gradient 12s ease infinite;
-  overflow: scroll;
+  /* background-color: #292929; */
+  /* background-image: url("./public/images/istockphoto-1086794928-612x612.jpg"); */
+  overflow: hidden;
   /* background: #9152f8;
   background: -webkit-linear-gradient(top, #7579ff, #b224ef);
   background: -o-linear-gradient(top, #7579ff, #b224ef);
@@ -61,6 +64,19 @@ body, html {
   100% {
     background-position: 0% 50%;
     }
+}
+
+::-webkit-scrollbar{
+  width:8px;
+}
+::-webkit-scrollbar-thumb{
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255);
+  box-shadow: inset 0 0 6px rgba(0,0,0,.5);
+}
+::-webkit-scrollbar-track{
+  border-radius: 10px;
+  background-color: rgba(255,255,255);
 }
 
 #menu {
@@ -121,13 +137,14 @@ body, html {
   color: #fff;
   font-weight: 900;
   font-family: Poppins-Regular;
-  font-size: 40px;
+  font-size: 20px;
   transform: translate(-100%, 0);
   transition: 0.5s;
   z-index: 5;
 }
 .nav-page1 span {
   padding: 1rem;
+  cursor: pointer;
 }
 .nav-page2 {
   position: absolute;
@@ -331,7 +348,7 @@ label {
   100% {
      transform: translateY(-1000px) rotate(720deg);
      opacity: 0;
-     border-radius: 50%;
+     border-radius: 20%;
   }
 }
 
@@ -372,7 +389,6 @@ iframe {
 
 .container-login100 {
   width: 100%;  
-  min-height: 100vh;
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -411,11 +427,12 @@ option {
 .wrap-login100 {
   width: 80%;
   border-radius: 10px;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   padding: 55px 55px 37px 55px;
-  
   background-color: rgba(255,255,255,0.24);
-  
+  backdrop-filter: blur(5px);
+  max-height: 100vh;
 }
 
 .wrap-clue {
@@ -854,7 +871,7 @@ option {
 .login100-form-btn {
   font-family: Poppins-Medium;
   font-size: 16px;
-  color: #555555;
+  color: #fff;
   line-height: 1.2;
 
   display: -webkit-box;
@@ -891,7 +908,7 @@ option {
   width: 100%;
   height: 100%;
   border-radius: 25px;
-  background-color: rgba(255,255,255,0.4);
+  background-color: rgba(0,0,0,0.4);
   top: 0;
   left: 0;
   opacity: 1;
