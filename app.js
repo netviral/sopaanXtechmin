@@ -225,7 +225,20 @@ app.post("/clues/:track/:number",function(req,res){
                 }else if(req.params.number!=0 && !team.clues.includes(Number(req.params.number)-1)){
                     res.render('error',{msg:"Answer previous clues first. "})
                 }else if(req.params.number==totalClues){
-                    res.send("Congratulations. You've completed treasure hunt! Report to the main venue.")
+                    Team.updateOne(
+                        { _id: team._id },
+                        { $push: { clues: [req.params.number] } }
+                      )
+                        .then(result => {
+                        //   console.log('Team updated:', result);
+                          if(result){
+                            res.send("Congratulations. You've completed treasure hunt! Report to the main venue.")
+                          }
+                        })
+                        .catch(error => {
+                            res.render('error',{msg:'Error updating team:'})
+                            console.error('Error updating team:', error);
+                        })
                 } else if(req.params.number>totalClues){
                     res.render('error',{msg:"No such clue"})
                 }else{
