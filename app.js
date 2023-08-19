@@ -217,7 +217,7 @@ app.post("/clues/:track/:number",function(req,res){
                             .then(foundClue => {
                                 console.log(foundClue)
                                 if (foundClue) {
-                                    res.render('error',{msg:"You've already submitted this clue. Go to next. "+foundClue.clue})
+                                    res.render('error',{msg:"You've already submitted this clue. Your next clue is: "+foundClue.clue})
                                 } else {
                                     res.render('error',{msg:"You've already submitted this clue. Go to next."})
                                 }
