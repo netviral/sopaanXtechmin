@@ -367,7 +367,7 @@ body {
   // Fetch the data from the API endpoint
   function fetchLeaderboard() {
 
-  fetch('http://localhost:3000/api/leaderboard/<%=docs[0].track%>')  // Replace '5' with the desired number
+  fetch('http://65.0.94.111/api/leaderboard/<%=docs[0].track%>')  // Replace '5' with the desired number
       .then(response => response.json())
       .then(docs => {
         console.log(docs)
