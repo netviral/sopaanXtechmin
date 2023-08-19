@@ -83,7 +83,8 @@ function generateOTP(length) {
 app.post("/api/clues/register",function(req,res){
     if(req.query.key=="protected"){
         const payload = req.body;  // Assuming the incoming JSON array is in the request body
-        Clue.insertMany(JSON.parse(payload))
+        console.log(req.body);
+        Clue.insertMany(payload)
             .then(insertedDocuments => {
             res.status(201).json({ message: 'Data saved successfully', insertedDocuments });
         })
@@ -99,7 +100,7 @@ app.post("/api/clues/register",function(req,res){
 app.post("/api/teams/register",function(req,res){
     if(req.query.key=="protected"){
         const payload = req.body;  // Assuming the incoming JSON array is in the request body
-        Team.insertMany(JSON.parse(payload))
+        Team.insertMany(payload)
             .then(insertedDocuments => {
             res.status(201).json({ message: 'Data saved successfully', insertedDocuments });
         })
