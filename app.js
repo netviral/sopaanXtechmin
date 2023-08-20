@@ -153,9 +153,9 @@ app.post("/api/teams/register",function(req,res){
     // });   
 });
 
-// app.get("/home", function(req,res){
-//     res.render("landingpage")
-// });
+app.get("/", function(req,res){
+    res.render("landingpage")
+});
 
 // app.get("/end", function(req,res){
 //     res.render("congratulations")
@@ -240,8 +240,8 @@ app.post("/clues/:track/:number",function(req,res){
                         .then(result => {
                         //   console.log('Team updated:', result);
                           if(result){
-                            res.send("Congratulations. You've completed treasure hunt! Report to the main venue.")
-                          }
+                                res.render("congratulations")
+                            }
                         })
                         .catch(error => {
                             res.render('error',{msg:'Error updating team:'})
