@@ -153,6 +153,14 @@ app.post("/api/teams/register",function(req,res){
     // });   
 });
 
+// app.get("/home", function(req,res){
+//     res.render("landingpage")
+// });
+
+// app.get("/end", function(req,res){
+//     res.render("congratulations")
+// });
+
 app.get("/clues/:track/:number",function(req,res){
     day=day;
     track=(req.params.track);
