@@ -6,6 +6,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="/images/icons/favicon.ico"/>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
@@ -27,31 +30,14 @@
 	<link rel="stylesheet" type="text/css" href="/css/util.css">
 	<link rel="stylesheet" type="text/css" href="/css/main.css">
 <!--===============================================================================================-->
+	<script src="/js/main.js"></script>
 	<style>
-		select{
-			border:2px solid white;
-		}
 		.inherit-link {
   all: inherit;
 }
 	</style>
-	<script src="/js/main.js"></script>
-
 </head>
 <body>
-	<ul class="circles">
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-	</ul>
 	<div id='menu'>
 		<div class='menu-line1'></div>
 		<div class='menu-line2'></div>
@@ -62,46 +48,42 @@
 		<span><a class="inherit-link" href="/leaderboard/2">Leaderboard 2</a></span>
 	   </div>
 	  <div class='nav-page2'></div>
+	  <div class='nav-page2'></div>
+	<!-- <ul class="circles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul> -->
 	<div class="limiter">
 		<div class="container-login100">
-			<div class="wrap-login100">
-				<form action="/clues/<%=track%>/<%=number%>" method="post" class="login100-form validate-form">
-					<span class="login100-form-logo">
-						<i class="zmdi zmdi-landscape"></i>
-					</span>
-
-					<span class="login100-form-title p-b-34 p-t-27">
-						<%=greet%>! You've found clue <%=number%>! 
-						<p style="font-size:18px;color:white">Submit form to record and reveal next clue</p>
-
-					</span>
-
-
-					<div id="wrap-input100 dropDownSelect1">
-						<select style="padding-left: 2px;" name="teamName" class="input100">
-							<option class="input100" value="Choose Your Team">Choose Your Team</option>
-							<%for(var i=0;i<teams.length;i++){%>
-								<option value="<%=teams[i].teamName%>"><%=teams[i].teamName%></option>	
-							<%}%>
-						</select>
-					</div>
-					<br>	
-					<div class="wrap-input100 validate-input">
-						<input required placeholder="Enter Team Code" class="input100" type="text" name="code" >
-						<span class="focus-input100"></span>
-					</div>
-			
-
-					<br><br>
-					<div class="container-login100-form-btn">
-						<button type="submit" class="login100-form-btn">
-							<%=btn%>
-						</button>
-					</div>
-				</form>
+			<div style="position: fixed;">
+				<p style="font-family: 'Poppins'; font-size: 35px; font-weight: 900; color: rgba(255,255,255,0.4);">
+					CONGRATULATIONS!
+				</p>
 			</div>
+			<br>
+			<div style="position: fixed;margin-top: 130px;">
+				<p style="font-family: 'Poppins-Regular';text-align: center; font-size: 20px; color: #fff;">
+					You have completed the hunt! Report to the registration desk ASAP.
+				</p>
+			</div>
+			<!-- <div style="position: absolute; bottom: 10px;">
+				<p style="font-family: 'Poppins-Regular';color: #fff;">
+					Powered by TECHMIN
+				</p>
+			</div> -->
 		</div>
 	</div>
+	
+
 	<div id="dropDownSelect1"></div>
 	
 <!--===============================================================================================-->
@@ -120,6 +102,30 @@
 	<script src="/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-preset-confetti@2/tsparticles.preset.confetti.bundle.min.js"></script>
+    <script>
+        (async () => {
+          await loadConfettiPreset(tsParticles); // this is required only if you are not using the bundle script
+        
+          await tsParticles.load("tsparticles", {
+            emitters:{
+              startcount: 80,
+              position:{
+                x: 50,
+                y: 50
+              },
+              size: {
+                width: 100,
+                height: 100
+              },
+              life:{
+                duration: 0,
+              },
+            },
+            preset: "confetti",
+          });
+        })();
+    </script>
 
 </body>
 </html>
