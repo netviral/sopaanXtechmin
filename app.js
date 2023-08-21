@@ -5,7 +5,7 @@ const bodyParser=require("body-parser");
 const ejs=require("ejs");
 const mongoose = require('mongoose');
 var cors = require('cors');
-day=2;
+day=1;
 totalClues=7;
 
 app.use(cors());
