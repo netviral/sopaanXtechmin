@@ -48,6 +48,7 @@ body, html {
   /* background-image: url("./public/images/istockphoto-1086794928-612x612.jpg"); */
   overflow: hidden;
   position:relative;
+  -webkit-overflow-scrolling: touch
   /* background: #9152f8;
   background: -webkit-linear-gradient(top, #7579ff, #b224ef);
   background: -o-linear-gradient(top, #7579ff, #b224ef);
