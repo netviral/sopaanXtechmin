@@ -48,7 +48,6 @@ body, html {
   /* background-image: url("./public/images/istockphoto-1086794928-612x612.jpg"); */
   overflow: hidden;
   position:relative;
-  -webkit-overflow-scrolling: touch
   /* background: #9152f8;
   background: -webkit-linear-gradient(top, #7579ff, #b224ef);
   background: -o-linear-gradient(top, #7579ff, #b224ef);
@@ -430,6 +429,7 @@ option {
   width: 80%;
   border-radius: 10px;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   overflow-x: hidden;
   padding: 55px 55px 37px 55px;
   background-color: rgba(255,255,255,0.24);
@@ -718,7 +718,7 @@ option {
   border: 2px solid #fff;
   color: #fff;
   line-height: 1.2;
-  margin-bottom: 0px;
+  margin-bottom: 10px;
   display: block;
   width: 100%;
   height: 45px;
@@ -935,7 +935,7 @@ option {
 
 @media (max-width: 576px) {
   .wrap-login100 {
-    padding: 55px 15px 37px 15px;
+    padding: 30px 15px 30px 15px;
   }
 }
 
