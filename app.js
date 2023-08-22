@@ -218,7 +218,7 @@ app.get("/clues/:track/:number",function(req,res){
 
 app.get("/website/stats",function(req,res){
     const logFilePath = '/var/log/nginx/access.log'; // Adjust the path to your Nginx log file
-    const htmlReportPath = '~/sopaanXtechmin/output.html'; // Adjust the path to your GoAccess report
+    const htmlReportPath = 'output.html'; // Adjust the path to your GoAccess report
     const goAccessCommand = `goaccess ${logFilePath} -o ${htmlReportPath} --log-format=COMBINED`;
   
     // Run GoAccess command using the exec function
@@ -228,7 +228,7 @@ app.get("/website/stats",function(req,res){
         res.send("An error occurred generating the report.");
       }
       // Read and serve the HTML report file
-      res.sendFile(htmlReportPath);
+      res.sendFile(__dirname+"/"+htmlReportPath);
     });
 });
 
