@@ -5,6 +5,8 @@ const bodyParser=require("body-parser");
 const ejs=require("ejs");
 const mongoose = require('mongoose');
 var cors = require('cors');
+const { exec } = require('child_process');
+
 day=1;
 totalClues=7;
 
@@ -212,6 +214,22 @@ app.get("/clues/:track/:number",function(req,res){
         });
 
     }
+});
+
+app.get("/website/stats",function(req,res){
+    const logFilePath = '/var/log/nginx/access.log'; // Adjust the path to your Nginx log file
+    const htmlReportPath = '~/sopaanXtechmin/output.html'; // Adjust the path to your GoAccess report
+    const goAccessCommand = `goaccess ${logFilePath} -o ${htmlReportPath} --log-format=COMBINED`;
+  
+    // Run GoAccess command using the exec function
+    exec(goAccessCommand, (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Error running GoAccess: ${error}`);
+        res.send("An error occurred generating the report.");
+      }
+      // Read and serve the HTML report file
+      res.sendFile(htmlReportPath);
+    });
 });
 
 app.post("/clues/:track/:number",function(req,res){
