@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 var cors = require('cors');
 const { exec } = require('child_process');
 
-day=1;
+day=2;
 totalClues=7;
 
 app.use(cors());
@@ -302,6 +302,9 @@ app.post("/clues/:track/:number",function(req,res){
 app.get("/leaderboard/:number",function(req,res){
     Team.find({day:day,track:req.params.number}).sort({'clues':-1,'updatedAt':1})
     .then(docs => {
+      docs.forEach(doc => {
+        doc.updatedAt=new Date(doc.updatedAt);
+      });
       res.render("leaderboard", { docs: docs });
     })
     .catch(err => {
