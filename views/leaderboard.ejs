@@ -330,7 +330,16 @@ body {
         <h1>Sopaan Leaderboard</h1>
       </div>
       <div class="list__body">
-        <table id="leader-table" class="list__table"></table>
+        <table id="leader-table" class="list__table">
+          <%for(var i=0;i<docs.length;i++){%>
+          <tr class="list__row" data-image="https://www.formula1.com/content/fom-website/en/drivers/lewis-hamilton/_jcr_content/image.img.1920.medium.jpg/1533294345447.jpg" data-nationality="British" data-dob="1985-01-07" data-country="gb">
+            <td class="list__cell"><span class="list__value"><%=i+1%></span></td>
+            <td class="list__cell"><span class="list__value"><%=docs[i].teamName%></span><small class="list__label">Team Name</small></td>
+            <td class="list__cell"><span class="list__value"><%=docs[i].clues.length-1%></span><small class="list__label">Clues Solved</small></td>
+            <td class="list__cell"><span class="list__value">Last at</span><small class="list__label"><%=docs[i].updatedAt.toLocaleTimeString()%> <%=docs[i].updatedAt.toLocaleDateString()%></small></td>
+          </tr>
+          <%}%>
+        </table>
       </div>
     </div>
   </div>
