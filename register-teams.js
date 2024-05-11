@@ -1,7 +1,13 @@
+
 generateAndSaveTeams(1, 1, 10); // Day 1, Track 1
-generateAndSaveTeams(2, 1, 10); // Day 1, Track 2
-generateAndSaveTeams(1, 2, 10); // Day 2, Track 1
-generateAndSaveTeams(2, 2, 10); // Day 2, Track 2
+generateAndSaveTeams(1, 2, 10); // Day 1, Track 2
+generateAndSaveTeams(1, 3, 10); // Day 1, Track 2
+generateAndSaveTeams(1, 4, 10); // Day 1, Track 2
+generateAndSaveTeams(1, 5, 10); // Day 1, Track 2
+generateAndSaveTeams(1, 6, 10); // Day 1, Track 2
+generateAndSaveTeams(1, 7, 10); // Day 1, Track 2
+// generateAndSaveTeams(1, 2, 10); // Day 2, Track 1
+// generateAndSaveTeams(2, 2, 10); // Day 2, Track 2
 // Function to generate and save random teams for a day, track, and number of teams
 async function generateAndSaveTeams(day, track, numberOfTeams) {
     try {
@@ -17,7 +23,7 @@ async function generateAndSaveTeams(day, track, numberOfTeams) {
           leaderName: `Leader ${teamId}`,
           leaderEmail: `leader${teamId}@example.com`,
           leaderPhone: 1234567890 + teamId,
-          code: generateRandomCode(),
+          code: generateRandomTeamCode(),
           clues: [],
           track: track,
           day: day
@@ -33,6 +39,7 @@ async function generateAndSaveTeams(day, track, numberOfTeams) {
   }
 
 
-function generateRandomCode() {
+function generateRandomTeamCode() {
     return Math.floor(Math.random() * 1000); // Generating a random code between 0 and 999
   }
+

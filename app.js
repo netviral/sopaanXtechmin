@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 var cors = require('cors');
 const { exec } = require('child_process');
 
-day=2;
+day=1;
 totalClues=7;
 
 app.use(cors());
@@ -50,6 +50,7 @@ const teamSchema = new mongoose.Schema({
 
 const Team = mongoose.model('Team', teamSchema);
 const Clue = mongoose.model('Clue', cluesSchema);
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

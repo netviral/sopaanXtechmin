@@ -1,11 +1,15 @@
 
   generateAndSaveClues(1, 1, 7); 
-//   Day 1, Track 1
-  generateAndSaveClues(2, 1, 7); 
-//   Day 1, Track 2
   generateAndSaveClues(1, 2, 7); 
-//   Day 2, Track 1
-  generateAndSaveClues(2, 2, 7); 
+  generateAndSaveClues(1, 3, 7); 
+  generateAndSaveClues(1, 4, 7); 
+  generateAndSaveClues(1, 5, 7); 
+  generateAndSaveClues(1, 6, 7); 
+  generateAndSaveClues(1, 7, 7); 
+// //   Day 1, Track 2
+//   generateAndSaveClues(1, 2, 7); 
+// //   Day 2, Track 1
+//   generateAndSaveClues(2, 2, 7); 
 //   Day 2, Track 2
 //  Function to generate and save clues for a day, track, and number of clues
 
@@ -19,7 +23,7 @@
           clueNumber:i,
           day: day,
           track: track,
-          code: generateRandomCode(),
+          code: generateRandomClueCode(),
           clue: `Clue for Track ${track} Day ${day} - Clue ${i}`
         };
         sampleClues.push(clueData);
@@ -34,7 +38,7 @@
 
 
 // Function to generate a random code
-function generateRandomCode() {
+function generateRandomClueCode() {
 const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 let code = '';
 for (let i = 0; i < 6; i++) {
