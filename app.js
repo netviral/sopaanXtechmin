@@ -70,8 +70,21 @@ const options = {
       res.set('x-timestamp', Date.now())
     }
   }
-
-app.use(express.static(__dirname+'/public'))
+  app.use(
+    "/",
+    express.static(__dirname + "/public", {
+      dotfiles: "ignore", // Ignore dotfiles (e.g., .gitignore)
+      etag: false, // Disable ETags for better caching control
+      extensions: ["htm", "html"], // Serve HTML files without specifying the extension
+      index: false, // Disable directory listing
+      maxAge: "2d", // Cache static assets for two days
+      redirect: false, // Disable automatic redirect
+      setHeaders(res, path, stat) {
+        res.set("x-timestamp", Date.now()); // Set custom response header
+      },
+    })
+  );
+// app.use(express.static(__dirname+'/public'))
 
 function generateOTP(length) {
     var string = '0123456789';
